@@ -5,13 +5,13 @@ filepath = sys.argv[1]
 
 
 def load_data(filepath):
-    data = json.load(open(str(filepath)))
-    return data
+    load_json = json.load(open(str(filepath)))
+    return load_json
 
 data = load_data(filepath)
 
 def pretty_print_json(data):
-    my_json = json.dumps(data, indent=4, sort_keys=True, ensure_ascii=False, separators=(',', ': '))
-    return my_json
+    parse_json = json.dumps(data, indent=4, sort_keys=True, ensure_ascii=False, separators=(',', ': '))
+    return parse_json
 
 print (pretty_print_json(data))

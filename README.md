@@ -6,7 +6,7 @@
 
 Необходимо вызвать скрипт с указанием пути к файлу, который необходимо распарсить.
 
-Example of script launch on Linux, Python 3.5:
+Пример запруска скрипта на ОС Linux, Python 3.5:
 
 ```bash
 
@@ -35,6 +35,6 @@ $ python pprint_json.py <path to file>
 
 ```
 
-# Project Goals
+# Цели проекта
 
-The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
+Код написан в учебных целях. Курс предназначен для Web - разрабодчиков - [DEVMAN.org](https://devman.org)
