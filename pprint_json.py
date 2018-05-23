@@ -1,17 +1,27 @@
 import json
 import sys
 
+
 filepath = sys.argv[1]
 
+try:
+    def load_data(filepath):
+        with open(filepath, 'r') as file_handler:
+            return json.load(file_handler)
 
-def load_data(filepath):
-    load_json = json.load(open(str(filepath)))
-    return load_json
+    def pretty_print_json(filepath):
+        json_data = load_data(filepath)
+        parse_json = json.dumps(json_data, indent=4, ensure_ascii=False, separators=(',', ': '))
+        return parse_json
 
-json_data = load_data(filepath)
+    if __name__ == '__main__':
+        print (pretty_print_json(filepath))
 
-def pretty_print_json(json_data):
-    parse_json = json.dumps(json_data, indent=4, sort_keys=True, ensure_ascii=False, separators=(',', ': '))
-    return parse_json
 
-print (pretty_print_json(json_data))
+except ValueError as e:
+    print ('Json code unccorect or file not format json. Error: ',e)
+
+except Exception as e:
+    print (e)
+
+
