@@ -21,7 +21,5 @@ try:
 except ValueError as e:
     print ('Json code unccorect or file not format json. Error: ',e)
 
-except Exception as e:
-    print (e)
 
 
