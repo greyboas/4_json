@@ -3,18 +3,18 @@ import sys
 
 
 def load_data(filepath):
-        try:
-            with open(filepath, 'r') as file_handler:
-                return json.load(file_handler)
-        except FileNotFoundError as error:
-            print('File not found: ', error)
-        except ValueError as error:
-            print('Json code unccorect or file not format json. Error: ', error)
+    try:
+        with open(filepath, 'r') as file_handler:
+            return json.load(file_handler)
+    except FileNotFoundError as error:
+        print('File not found: ', error)
+    except ValueError as error:
+        print('Json code unccorect or file not format json. Error: ', error)
 
 
 def pretty_print_json(filepath):
-    data = load_data(filepath)
-    parse_text = json.dumps(data, indent=4,
+    json_load = load_data(filepath)
+    parse_text = json.dumps(json_load, indent=4,
                             ensure_ascii=False, separators=(',', ': '))
     print(parse_text)
 
