@@ -10,9 +10,9 @@ def load_data(filepath):
         return 'It is not file fotmat JSON'
 
 
-def pretty_print_json(data):
+def pretty_print_json(json_content):
     json_viewer = json.dumps(
-        data,
+        json_content,
         indent=4,
         ensure_ascii=False,
         separators=(',', ': '))
@@ -22,7 +22,7 @@ def pretty_print_json(data):
 if __name__ == '__main__':
     try:
         filepath = sys.argv[1]
-        file = open(filepath)
+        open(filepath)
     except IndexError as error:
         print('Not set argyment filepath')
         sys.exit(-1)
@@ -30,5 +30,5 @@ if __name__ == '__main__':
         print('File not found: ', error)
         sys.exit(-1)
     else:
-        data = load_data(filepath)
-        pretty_print_json(data)
+        json_content = load_data(filepath)
+        pretty_print_json(json_content)
