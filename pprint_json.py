@@ -6,7 +6,7 @@ def load_data(filepath):
     try:
         with open(filepath, 'r') as file_handler:
             return json.load(file_handler)
-    except ValueError as error:
+    except ValueError:
         return None
 
 
