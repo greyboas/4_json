@@ -7,18 +7,28 @@ def load_data(filepath):
         with open(filepath, 'r') as file_handler:
             return json.load(file_handler)
     except ValueError as error:
-        print('Json code unccorect or file not format json. Error: ', error)
-    except FileNotFoundError as error:
-        print('File not found: ', error)
+        return 'It is not file fotmat JSON'
 
 
-def pretty_print_json(filepath):
-    json_data = load_data(filepath)
-    parse_json = json.dumps(json_data, indent=4,
-                            ensure_ascii=False, separators=(',', ': '))
-    return parse_json
+def pretty_print_json(json_content):
+    json_viewer = json.dumps(
+        json_content,
+        indent=4,
+        ensure_ascii=False,
+        separators=(',', ': '))
+    print(json_viewer)
 
 
 if __name__ == '__main__':
-    filepath = sys.argv[1]
-    print(pretty_print_json(filepath))
+    try:
+        filepath = sys.argv[1]
+        open(filepath)
+    except IndexError as error:
+        print('Not set argyment filepath')
+        sys.exit(-1)
+    except FileNotFoundError as error:
+        print('File not found: ', error)
+        sys.exit(-1)
+    else:
+        json_content = load_data(filepath)
+        pretty_print_json(json_content)
