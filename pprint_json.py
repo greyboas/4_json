@@ -7,7 +7,7 @@ def load_data(filepath):
         with open(filepath, 'r') as file_handler:
             return json.load(file_handler)
     except ValueError as error:
-        return 'It is not file fotmat JSON'
+        return None
 
 
 def pretty_print_json(json_content):
@@ -22,7 +22,7 @@ def pretty_print_json(json_content):
 if __name__ == '__main__':
     try:
         filepath = sys.argv[1]
-        open(filepath)
+        json_content = load_data(filepath)
     except IndexError as error:
         print('Not set argyment filepath')
         sys.exit(-1)
@@ -30,5 +30,4 @@ if __name__ == '__main__':
         print('File not found: ', error)
         sys.exit(-1)
     else:
-        json_content = load_data(filepath)
         pretty_print_json(json_content)
